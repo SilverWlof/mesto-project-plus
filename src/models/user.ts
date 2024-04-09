@@ -1,11 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
-import {
-  model,
-  Model,
-  Schema,
-  Document,
-} from 'mongoose';
+import {  model,  Model,  Schema,  Document,} from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import UnauthException from '../common/exceptions/UnauthException';
