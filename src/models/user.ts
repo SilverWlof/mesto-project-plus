@@ -25,6 +25,10 @@ const userSchema = new Schema<IUser, UserModel>({
   avatar: {
     type: String,
     required: false,
+    validate: {
+      validator: (v: string) => validator.isURL(v),
+      message: 'Неправильный формат картинки',
+    },
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   },
   about: {
