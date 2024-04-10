@@ -22,10 +22,12 @@ const cardSchema = new mongoose.Schema<ICard>({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
+    ref: 'users',
   },
   likes: {
     type: [mongoose.Types.ObjectId],
     default: [],
+    ref: 'users'
   },
   createdAt: {
     type: Date,

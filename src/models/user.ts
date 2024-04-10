@@ -1,11 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
-import {
-  model,
-  Model,
-  Schema,
-  Document,
-} from 'mongoose';
+import {  model,  Model,  Schema,  Document,} from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import UnauthException from '../common/exceptions/UnauthException';
@@ -32,6 +25,10 @@ const userSchema = new Schema<IUser, UserModel>({
   avatar: {
     type: String,
     required: false,
+    validate: {
+      validator: (v: string) => validator.isURL(v),
+      message: 'Неправильный формат картинки',
+    },
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   },
   about: {
