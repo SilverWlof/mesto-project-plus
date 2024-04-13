@@ -107,5 +107,5 @@ export const login = (req: authRequest, res: Response, next: NextFunction) => {
       res.send({
         token: jwt.sign({ _id: foundUser._id }, 'super-strong-secret', { expiresIn: '7d' }),
       });
-    }).catch(() => next(new UnauthException('Неправильные почта или пароль')));
+    }).catch((err) => next(err));
 };
